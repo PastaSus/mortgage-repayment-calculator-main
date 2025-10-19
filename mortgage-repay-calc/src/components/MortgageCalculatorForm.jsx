@@ -8,7 +8,7 @@ function MortgageCalculatorForm() {
   return (
     <form>
       <MortgageAmount></MortgageAmount>
-      <div className="">
+      <div className="grid lg:grid-cols-2 lg:items-end lg:gap-6">
         <MortgageTerm></MortgageTerm>
         <MortgageInterestRate></MortgageInterestRate>
       </div>

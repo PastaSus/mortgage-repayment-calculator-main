@@ -4,16 +4,16 @@ import MortgageResults from "./components/MortgageResults";
 
 function App() {
   return (
-    <div className="">
-      <main className="grid lg:max-w-4xl lg:grid-cols-2 lg:items-center lg:rounded-3xl lg:bg-[var(--White)]">
-        <div className="px-6 py-7">
-          <div className="">
+    <div className="lg:grid lg:min-h-dvh lg:place-content-center">
+      <main className="bg-[var(--White)] lg:grid lg:max-w-235 lg:grid-cols-2 lg:rounded-3xl">
+        <div className="px-6 py-7 lg:px-9 lg:py-9">
+          <div className="lg:flex lg:items-center lg:justify-between">
             <h1 className="m-0 text-2xl text-[var(--Slate-900)]">
               Mortgage Calculator
             </h1>
             <button
               type="button"
-              className="mt-2 border-none bg-transparent p-0 text-[var(--Slate-700)] underline"
+              className="mt-2 border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
             >
               Clear All
             </button>
