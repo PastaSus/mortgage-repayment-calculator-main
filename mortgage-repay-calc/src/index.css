@@ -101,6 +101,11 @@
     -moz-appearance: textfield;
   }
 
+  /* custom input radio */
+  input[type="radio"] {
+    border: 0.15em solid currentColor;
+  }
+
   /* Make sure textareas without a rows attribute are not tiny */
   textarea:not([rows]) {
     min-height: 10em;
@@ -125,5 +130,17 @@
     --Slate-500: hsl(200, 26%, 54%);
     --Slate-700: hsl(200, 24%, 40%);
     --Slate-900: hsl(202, 55%, 16%);
+  }
+}
+
+@layer components {
+  .radio__control {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  input[type="radio"]::before {
+    content: "";
   }
 }
