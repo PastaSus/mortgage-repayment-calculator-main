@@ -18,7 +18,7 @@ function App() {
             <button
               type="button"
               onClick={clearResults}
-              className="mt-2 border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
+              className="mt-2 cursor-pointer border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
             >
               Clear All
             </button>
