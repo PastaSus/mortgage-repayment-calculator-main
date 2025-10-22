@@ -1,8 +1,12 @@
-// import { useState } from "react";
+import { useContext } from "react";
+import { MortgageContext } from "./context/MortgageContext";
+
 import MortgageCalculatorForm from "./components/MortgageCalculatorForm";
 import MortgageResults from "./components/MortgageResults";
 
 function App() {
+  const { clearResults } = useContext(MortgageContext);
+
   return (
     <div className="lg:grid lg:min-h-dvh lg:place-content-center">
       <main className="bg-[var(--White)] lg:grid lg:max-w-235 lg:grid-cols-2 lg:rounded-3xl">
@@ -13,6 +17,7 @@ function App() {
             </h1>
             <button
               type="button"
+              onClick={clearResults}
               className="mt-2 border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
             >
               Clear All

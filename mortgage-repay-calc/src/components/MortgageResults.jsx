@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { MortgageContext } from "../context/MortgageContext";
+
 import EmptyIllust from "./../assets/images/illustration-empty.svg";
 
+// 2nd step: we want to re-render this component when there are no errors and show the calculation results on results component
 function MortgageResults() {
+  const { results } = useContext(MortgageContext);
+
   return (
     // when calculated text is aligned to left
     <section
