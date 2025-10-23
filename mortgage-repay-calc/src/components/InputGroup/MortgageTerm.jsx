@@ -20,7 +20,18 @@ function MortgageTerm({ register, errors }) {
           min="1"
           max="40"
           required
-          {...register("term", { required: "Term is required" })}
+          {...register("term", {
+            required: "Term is required",
+            validate: (value) => {
+              const clean = value.replace(/,/g, "");
+              if (isNaN(clean)) return "Term must be a number";
+              const num = parseInt(clean, 10);
+              if (!Number.isInteger(num)) return "Term must be a whole number";
+              if (num < 1) return "Term must be at least 1 year";
+              if (num > 40) return "Term must not exceed 40 years";
+              return true;
+            },
+          })}
           className="w-full rounded-sm border-none p-3 font-bold text-[var(--Slate-900)]"
         />
         <span

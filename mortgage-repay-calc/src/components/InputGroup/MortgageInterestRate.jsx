@@ -25,6 +25,14 @@ function MortgageInterestRate({ register, errors }) {
           required
           {...register("interestRate", {
             required: "Interest rate is required",
+            validate: (value) => {
+              const clean = value.replace(/,/g, "");
+              if (isNaN(clean)) return "Interest rate must be a number";
+              const num = parseFloat(clean);
+              if (num <= 0) return "Interest rate must be greater than 0";
+              if (num > 100) return "Interest rate must not exceed 100%";
+              return true;
+            },
           })}
           className="w-full rounded-sm border-none p-3 font-bold text-[var(--Slate-900)]"
         />

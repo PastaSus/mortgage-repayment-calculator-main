@@ -23,7 +23,18 @@ function MortgageAmount({ register, errors }) {
           type="text"
           id="mortgage-amount"
           inputMode="numeric"
-          {...register("amount", { required: "Amount is required" })}
+          {...register("amount", {
+            required: "Amount is required",
+            validate: (value) => {
+              const clean = value.replace(/,/g, "");
+              if (isNaN(clean)) return "Amount must be a number";
+              if (parseFloat(clean) <= 0)
+                return "Amount must be greater than 0";
+              if (parseFloat(clean) > 10000000)
+                return "Amount must not exceed £10,000,000";
+              return true;
+            },
+          })}
           className="w-full border-none p-3 font-bold text-[var(--Slate-900)]"
           aria-describedby={`${errors.amount ? "amount-error" : "mortgage-amount-desc"}`}
           required
