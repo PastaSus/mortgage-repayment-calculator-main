@@ -10,12 +10,13 @@ import { useContext } from "react";
 
 // 1st step: re-render ui components border have error below input textboxes / radio(radio border still the same but we shall) in red color
 function MortgageCalculatorForm() {
-  const { updateResults } = useContext(MortgageContext);
+  const { updateResults, clearResults } = useContext(MortgageContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -24,6 +25,7 @@ function MortgageCalculatorForm() {
     const months = parseInt(data.term) * 12;
 
     let monthlyPayment;
+
     if (data.mortgageType === "Interest Only") {
       monthlyPayment = amount * rate;
     } else {
@@ -38,8 +40,26 @@ function MortgageCalculatorForm() {
     });
   };
 
+  // ✅ place this below your onSubmit function
+  const handleClearAll = () => {
+    reset(); // clears all input + radio fields
+    clearResults(); // clears the results component
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <div className="lg:flex lg:items-center lg:justify-between">
+        <h1 className="m-0 text-2xl text-[var(--Slate-900)]">
+          Mortgage Calculator
+        </h1>
+        <button
+          type="button"
+          onClick={handleClearAll}
+          className="mt-2 cursor-pointer border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
+        >
+          Clear All
+        </button>
+      </div>
       <MortgageAmount register={register} errors={errors}></MortgageAmount>
       <div className="grid lg:grid-cols-2 lg:items-end lg:gap-6">
         <MortgageTerm register={register} errors={errors}></MortgageTerm>

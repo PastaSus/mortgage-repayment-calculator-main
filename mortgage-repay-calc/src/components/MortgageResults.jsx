@@ -37,7 +37,10 @@ function MortgageResults() {
       aria-labelledby="results-heading"
     >
       <div>
-        <h2 id="results-heading" className="mb-4 text-xl font-bold">
+        <h2
+          id="results-heading"
+          className="mb-4 text-xl font-bold lg:text-[1.5rem]"
+        >
           Your Results
         </h2>
         <p className="font-medium text-[var(--Slate-300)]">
@@ -46,7 +49,7 @@ function MortgageResults() {
           again.
         </p>
       </div>
-      <div className="mt-3 bg-[var(--Slate-900)] p-3">
+      <div className="relative z-2 mt-5 rounded-md border-t-3 border-[var(--Lime)] bg-[var(--Slate-950)] px-3 py-5 lg:mt-8 lg:p-7">
         <div className="flex flex-col gap-2">
           <label
             htmlFor="monthly-repayment"
@@ -56,7 +59,7 @@ function MortgageResults() {
           </label>
           <output
             id="monthly-repayment"
-            className="text-5xl font-bold text-[var(--Lime)]"
+            className="text-[2.5rem] font-bold text-[var(--Lime)]"
           >
             £{results.monthlyPayment}
           </output>

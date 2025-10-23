@@ -4,7 +4,13 @@ function MortgageInterestRate({ register, errors }) {
       <label htmlFor="interest-rate" className="text-[var(--Slate-700)]">
         Interest Rate
       </label>
-      <div className="mt-2 flex items-center rounded-sm border border-[var(--Slate-700)]">
+      <div
+        className={`mt-2 flex items-center rounded-sm border ${
+          errors.interestRate
+            ? "border-[var(--Red)]"
+            : "border-[var(--Slate-700)]"
+        }`}
+      >
         <span id="interest-rate-desc" className="sr-only">
           Enter the annual interest rate as a percentage
         </span>

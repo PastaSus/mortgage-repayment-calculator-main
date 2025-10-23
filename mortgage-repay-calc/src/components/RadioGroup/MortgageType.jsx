@@ -9,7 +9,7 @@ function MortgageType({ register, errors }) {
             value="Repayment"
             name="mortgageType"
             className="relative m-0 grid h-[0.7em] w-[0.7em] translate-y-[0.075em] cursor-pointer appearance-none place-content-center rounded-full border-1 border-[var(--Slate-700)] bg-white text-[currentColor] transition-transform duration-120 before:h-[0.5em] before:w-[0.5em] before:scale-0 before:rounded-full before:shadow-[inset_1em_1em_var(--Lime)] before:ease-in-out checked:border-[var(--Lime)] checked:bg-white checked:before:scale-100"
-            {...register("type", {
+            {...register("mortgageType", {
               required: "Mortagage type is required",
             })}
             aria-describedby={errors.type ? "mortgage-type-error" : undefined}
@@ -25,7 +25,7 @@ function MortgageType({ register, errors }) {
             value="Interest Only"
             name="mortgageType"
             className="relative m-0 grid h-[0.7em] w-[0.7em] translate-y-[0.075em] cursor-pointer appearance-none place-content-center rounded-full border-1 border-[var(--Slate-700)] bg-white text-[currentColor] transition-transform duration-120 before:h-[0.5em] before:w-[0.5em] before:scale-0 before:rounded-full before:shadow-[inset_1em_1em_var(--Lime)] before:ease-in-out checked:border-[var(--Lime)] checked:bg-white checked:before:scale-100"
-            {...register("type", {
+            {...register("mortgageType", {
               required: "Mortagage type is required",
             })}
             aria-describedby={errors.type ? "mortgage-type-error" : undefined}
