@@ -40,7 +40,11 @@ function MortgageType({ register, errors }) {
         </label>
       </div>
       {errors.mortgageType && (
-        <p id="mortgage-type-error" className="text-sm text-[var(--Red)]">
+        <p
+          id="mortgage-type-error"
+          className="text-sm text-[var(--Red)]"
+          role="alert"
+        >
           {errors.mortgageType.message}
         </p>
       )}

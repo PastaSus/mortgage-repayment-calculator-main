@@ -15,22 +15,26 @@ function MortgageInterestRate({ register, errors }) {
           Enter the annual interest rate as a percentage
         </span>
         <input
-          type="number"
+          type="text"
           id="interest-rate"
           name="interest-rate"
-          step="0.01"
-          min="0"
-          max="20"
+          inputMode="decimal"
+          aria-invalid={!!errors.interestRate}
           aria-describedby={`${errors.interestRate ? "interest-rate-error" : "interest-rate-desc"}`}
           required
           {...register("interestRate", {
             required: "Interest rate is required",
             validate: (value) => {
-              const clean = value.replace(/,/g, "");
-              if (isNaN(clean)) return "Interest rate must be a number";
+              const clean = value.replace(/,/g, "").trim();
+              // ✅ Regex to allow numbers and one optional decimal
+              if (!/^\d+(\.\d+)?$/.test(clean))
+                return "Interest rate must be a valid number";
+
               const num = parseFloat(clean);
+
               if (num <= 0) return "Interest rate must be greater than 0";
               if (num > 100) return "Interest rate must not exceed 100%";
+
               return true;
             },
           })}
@@ -44,7 +48,11 @@ function MortgageInterestRate({ register, errors }) {
         </span>
       </div>
       {errors.interestRate && (
-        <p id="interest-rate-error" className="text-sm text-[var(--Red)]">
+        <p
+          id="interest-rate-error"
+          className="text-sm text-[var(--Red)]"
+          role="alert"
+        >
           {errors.interestRate.message}
         </p>
       )}

@@ -13,9 +13,10 @@ function MortgageTerm({ register, errors }) {
           Enter the mortgage term in years, between 1 and 40
         </span>
         <input
-          type="number"
+          type="text"
           id="mortgage-term"
           name="mortgage-term"
+          aria-invalid={!!errors.term}
           aria-describedby={`${errors.term ? "term-error" : "mortgage-term-desc"}`}
           min="1"
           max="40"
@@ -23,10 +24,14 @@ function MortgageTerm({ register, errors }) {
           {...register("term", {
             required: "Term is required",
             validate: (value) => {
-              const clean = value.replace(/,/g, "");
-              if (isNaN(clean)) return "Term must be a number";
+              const clean = value.replace(/,/g, "").trim();
+
+              if (!clean) return "Term is required";
+              if (!/^[\d.]+$/.test(clean)) return "Term must be a number";
+
+              if (clean.includes(".")) return "Term must be a whole number";
+
               const num = parseInt(clean, 10);
-              if (!Number.isInteger(num)) return "Term must be a whole number";
               if (num < 1) return "Term must be at least 1 year";
               if (num > 40) return "Term must not exceed 40 years";
               return true;
@@ -42,7 +47,7 @@ function MortgageTerm({ register, errors }) {
         </span>
       </div>
       {errors.term && (
-        <p id="term-error" className="text-sm text-[var(--Red)]">
+        <p id="term-error" className="text-sm text-[var(--Red)]" role="alert">
           {errors.term.message}
         </p>
       )}

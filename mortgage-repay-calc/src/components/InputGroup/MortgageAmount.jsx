@@ -23,10 +23,12 @@ function MortgageAmount({ register, errors }) {
           type="text"
           id="mortgage-amount"
           inputMode="numeric"
+          aria-invalid={!!errors.amount}
           {...register("amount", {
             required: "Amount is required",
             validate: (value) => {
               const clean = value.replace(/,/g, "");
+
               if (isNaN(clean)) return "Amount must be a number";
               if (parseFloat(clean) <= 0)
                 return "Amount must be greater than 0";
@@ -44,7 +46,7 @@ function MortgageAmount({ register, errors }) {
         </span>
       </div>
       {errors.amount && (
-        <p id="amount-error" className="text-sm text-[var(--Red)]">
+        <p id="amount-error" className="text-sm text-[var(--Red)]" role="alert">
           {errors.amount.message}
         </p>
       )}
