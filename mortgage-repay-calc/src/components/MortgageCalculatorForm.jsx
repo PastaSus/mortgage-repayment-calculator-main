@@ -20,7 +20,7 @@ function MortgageCalculatorForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const amount = parseFloat(data.amount);
+    const amount = parseFloat(data.amount.replace(/,/g, ""));
     const rate = parseFloat(data.interestRate) / 100 / 12;
     const months = parseInt(data.term) * 12;
 
