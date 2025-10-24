@@ -61,7 +61,7 @@ function MortgageResults() {
             id="monthly-repayment"
             className="text-[2.5rem] font-bold text-[var(--Lime)]"
           >
-            £{results.monthlyPayment}
+            £{Number(results.monthlyPayment).toLocaleString("en-GB")}
           </output>
         </div>
         <div className="pt- mt-4 flex flex-col gap-2 border-t border-[var(--Slate-700)] pt-4">
@@ -72,7 +72,7 @@ function MortgageResults() {
             className="text-2xl font-semibold text-[var(--White)]"
             id="total-repayment"
           >
-            £{results.total}
+            £{Number(results.total).toLocaleString("en-GB")}
           </output>
         </div>
       </div>
