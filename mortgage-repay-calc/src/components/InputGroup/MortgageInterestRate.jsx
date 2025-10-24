@@ -5,7 +5,7 @@ function MortgageInterestRate({ register, errors }) {
         Interest Rate
       </label>
       <div
-        className={`mt-2 flex items-center rounded-sm border ${
+        className={`group mt-2 flex items-center rounded-sm border focus-within:border-[var(--Lime)] hover:border-[var(--Slate-900)] focus:border-[var(--Lime)] ${
           errors.interestRate
             ? "border-[var(--Red)]"
             : "border-[var(--Slate-700)]"
@@ -34,10 +34,10 @@ function MortgageInterestRate({ register, errors }) {
               return true;
             },
           })}
-          className="w-full rounded-sm border-none p-3 font-bold text-[var(--Slate-900)]"
+          className="w-full rounded-sm border-none p-3 font-bold text-[var(--Slate-900)] outline-none"
         />
         <span
-          className={`input-suffix rounded-r-sm border-r-0 p-3 font-bold ${errors.interestRate ? "bg-[var(--Red)] text-[var(--White)]" : "bg-[var(--Slate-100)] text-[var(--Slate-700)]"}`}
+          className={`input-suffix rounded-r-sm border-r-0 p-3 font-bold group-focus-within:bg-[var(--Lime)] group-focus-within:text-[var(--Slate-900)] ${errors.interestRate ? "bg-[var(--Red)] text-[var(--White)]" : "bg-[var(--Slate-100)] text-[var(--Slate-700)]"}`}
           aria-hidden="true"
         >
           %

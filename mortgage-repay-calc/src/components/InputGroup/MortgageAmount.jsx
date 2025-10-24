@@ -5,12 +5,12 @@ function MortgageAmount({ register, errors }) {
         Mortgage Amount
       </label>
       <div
-        className={`mt-2 flex items-center rounded-sm border ${
-          errors.amount ? "border-[var(--Red)]" : "border-[var(--Slate-700)]"
+        className={`group mt-2 flex items-center rounded-sm border focus-within:border-[var(--Lime)] hover:border-[var(--Slate-900)] focus:border-[var(--Lime)] ${
+          errors.amount ? "border-[var(--Red)]" : "border-[var(--Slate-700)] "
         }`}
       >
         <span
-          className={`input-prefix rounded-l-sm border-r-0 p-3 font-bold ${
+          className={`input-prefix rounded-l-sm border-r-0 p-3 font-bold group-focus-within:bg-[var(--Lime)] group-focus-within:text-[var(--Slate-900)] ${
             errors.amount
               ? "bg-[var(--Red)] text-[var(--White)]"
               : "bg-[var(--Slate-100)] text-[var(--Slate-700)]"
@@ -35,7 +35,7 @@ function MortgageAmount({ register, errors }) {
               return true;
             },
           })}
-          className="w-full border-none p-3 font-bold text-[var(--Slate-900)]"
+          className="w-full border-none p-3 font-bold text-[var(--Slate-900)] outline-none"
           aria-describedby={`${errors.amount ? "amount-error" : "mortgage-amount-desc"}`}
           required
         />

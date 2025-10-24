@@ -55,7 +55,7 @@ function MortgageCalculatorForm() {
         <button
           type="button"
           onClick={handleClearAll}
-          className="mt-2 cursor-pointer border-none bg-transparent p-0 text-[var(--Slate-700)] underline lg:mt-0"
+          className="mt-2 cursor-pointer border-none bg-transparent p-0 text-[var(--Slate-700)] underline hover:text-[var(--Slate-900)] lg:mt-0"
         >
           Clear All
         </button>

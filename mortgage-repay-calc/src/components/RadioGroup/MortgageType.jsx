@@ -3,7 +3,7 @@ function MortgageType({ register, errors }) {
     <fieldset className="m-0 mt-4 border-none p-0">
       <legend className="text-[var(--Slate-700)]">Mortgage Type</legend>
       <div className="mt-2 grid gap-2">
-        <label className="radio__control grid cursor-pointer grid-cols-[1em_auto] gap-[0.1em] rounded-sm border border-[var(--Slate-500)] px-4 py-2 has-[input:checked]:border-[var(--Lime)] has-[input:checked]:bg-[var(--Lime)]/10">
+        <label className="radio__control grid cursor-pointer grid-cols-[1em_auto] gap-[0.1em] rounded-sm border border-[var(--Slate-500)] px-4 py-2 hover:border-[var(--Lime)] has-[input:checked]:border-[var(--Lime)] has-[input:checked]:bg-[var(--Lime)]/10">
           <input
             type="radio"
             value="Repayment"
@@ -21,7 +21,7 @@ function MortgageType({ register, errors }) {
             Repayment
           </span>
         </label>
-        <label className="radio__control grid cursor-pointer grid-cols-[1em_auto] gap-[0.1em] rounded-sm border border-[var(--Slate-500)] px-4 py-2 has-[input:checked]:border-[var(--Lime)] has-[input:checked]:bg-[var(--Lime)]/10">
+        <label className="radio__control grid cursor-pointer grid-cols-[1em_auto] gap-[0.1em] rounded-sm border border-[var(--Slate-500)] px-4 py-2 hover:border-[var(--Lime)] has-[input:checked]:border-[var(--Lime)] has-[input:checked]:bg-[var(--Lime)]/10">
           <input
             type="radio"
             value="Interest Only"
